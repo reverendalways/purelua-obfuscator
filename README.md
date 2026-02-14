@@ -15,15 +15,9 @@ The pipeline turns your code into something much harder to read, debug, or dump:
 
 You get a single, portable `.lua` file that behaves like the original but is far harder to reverse, log, or dump in a useful way.
 
-**CHANGES FROM ORIGINAL UPSTREAM** — This fork is not the same as stock Prometheus. Tweaks and additions make the output much harder to:
 
-- **Deobfuscate** — harder to reverse and reconstruct original source (VM, constant encoding, control flow).
+**CHANGES FROM ORIGINAL UPSTREAM** — This fork is not the same as stock Prometheus. I added some additional steps and the infinite loop trap so the output is harder to reverse engineer, dump, env log, or tamper with.
 
-- **Env log / dump** — mitigations so env dumps and runtime logging don’t expose the real logic or strings in a usable form.
-
-- **Tamper with or analyze** — anti-tamper and watermark checks; output structure differs so tools tuned for stock Prometheus don’t apply as-is.
-
-- **Infinite loop trap** — added to crash the dumper/env logger and to hinder automated analysis and stepping through the obfuscated code.
 
 # OUTPUT EXAMPLE ( 2K LINES OF LUA CODE OBFUSCATED )
 
